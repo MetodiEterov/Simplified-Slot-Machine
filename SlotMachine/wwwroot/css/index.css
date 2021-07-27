@@ -1,0 +1,55 @@
+
+.img-responsive {
+  width: 75px;
+  height: 75px;
+  display: block;
+  margin-top: 5px;
+}
+
+button {
+  width: 150px;
+  height: 50px;
+  display: block;
+}
+
+#lbl1, #lbl2, #lbl3 {
+  width: 150px;
+  height: 50px;
+  display: block;
+  font-size: 14px;
+}
+
+.container-fluid {
+  margin-top: 20px;
+}
+
+input {
+  text-align: center;
+}
+
+#result {
+  pointer-events: none;
+}
+
+.form-control {
+  width: 150px;
+}
+
+#gameOver {
+  visibility: hidden;
+  position: absolute;
+  z-index: 100;
+  zoom: 80%;
+}
+
+#won, #balance {
+  color: white;
+  background-color: darkcyan;
+}
+
+#bet {
+  color: white;
+  background-color: #dc3545;
+}
+
+

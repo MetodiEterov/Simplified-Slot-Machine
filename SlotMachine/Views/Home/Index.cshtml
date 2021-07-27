@@ -1,0 +1,90 @@
+@model SlotMachineModel
+
+@{
+  ViewData["Title"] = "Home Page";
+}
+
+<link href="~/css/index.css" rel="stylesheet" />
+<img src="~/images/GameOver.png" id="gameOver" />
+
+@using (Html.BeginForm())
+{
+  <div class="container-fluid">
+
+    @for (int i = 0; i < 4; i++)
+    {
+      <div class="row">
+        <div class="col-md-2">
+          <div class="thumbnail">
+            <img src=@Model.Sources[i].LeftSource class="img-responsive">
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="thumbnail">
+            <img src=@Model.Sources[i].MiddleSource class="img-responsive">
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="thumbnail">
+            <img src=@Model.Sources[i].RightSource class="img-responsive">
+          </div>
+        </div>
+      </div>
+    }
+
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-md-2">
+        <div class="thumbnail">
+          <button class="btn btn-danger" type="submit" id="spinBtn">SPIN</button>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <button class="btn btn-danger" id="lbl1">Enter stake amount:</button>
+      </div>
+
+      <div class="col-md-2">
+        <button class="btn btn-danger" id="lbl2">You have won:</button>
+      </div>
+
+      <div class="col-md-2">
+        <button class="btn btn-danger" id="lbl3">Current balance is:</button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-md-2">
+      </div>
+
+      <div class="col-md-2" id="inputField">
+        <input type="text" class="form-control" value="@Model.Bet" id="bet" name="bet">
+      </div>
+
+      <div class="col-md-2" id="result">
+        <input type="text" class="form-control" value="@Model.Won" id="won" name="won">
+      </div>
+
+      <div class="col-md-2">
+        <input type="text" class="form-control" value="@Model.Balance" id="balance" name="balance">
+      </div>
+
+    </div>
+  </div>
+
+  @Html.Hidden("IsGameRunning", Model.IsGameRunning)
+  @Html.Hidden("IsGameOver", Model.IsGameOver)
+}
+
+@section scripts{
+  <script src="~/js/index.js"></script>
+}
